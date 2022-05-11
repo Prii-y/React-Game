@@ -1,41 +1,36 @@
-import React, { useState } from 'react'
-import Data from './Data'
+import React, { useState } from 'react';
+import Image from './Image';
+import './index.css';
 const Card = () => {
-    const[items, setItems] = useState([
-        {id:1 , img:"https://images.unsplash.com/photo-1651303780707-a30a86b27478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:1 , img:"https://images.unsplash.com/photo-1651303780707-a30a86b27478?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:2 , img:"https://images.unsplash.com/photo-1651416814697-a63cb1d30ce7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:2 , img:"https://images.unsplash.com/photo-1651416814697-a63cb1d30ce7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8aG1lbnZRaFVteE18fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:3 , img:"https://images.unsplash.com/photo-1649958639104-ff8b771623d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:3 , img:"https://images.unsplash.com/photo-1649958639104-ff8b771623d9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDZ8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:4 , img:"https://images.unsplash.com/photo-1650012763642-70bd8dc5f324?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:4 , img:"https://images.unsplash.com/photo-1650012763642-70bd8dc5f324?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDd8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:5 , img:"https://images.unsplash.com/photo-1643958415975-b75211d0fd47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:5 , img:"https://images.unsplash.com/photo-1643958415975-b75211d0fd47?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDR8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:6 , img:"https://images.unsplash.com/photo-1651694922630-19f2d61ed4a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:6 , img:"https://images.unsplash.com/photo-1651694922630-19f2d61ed4a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDl8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:7 , img:"https://images.unsplash.com/photo-1651932167017-60502240bb22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:7 , img:"https://images.unsplash.com/photo-1651932167017-60502240bb22?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDV8NnNNVmpUTFNrZVF8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:8 , img:"https://images.unsplash.com/photo-1650327930027-7f907c9ad6c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""},
-        {id:8 , img:"https://images.unsplash.com/photo-1650327930027-7f907c9ad6c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDh8eGpQUjRobGtCR0F8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60", stat:""}
+    const[photos, setPhotos] = useState([
+      
+        {id:1 , img:"https://cdn.pixabay.com/photo/2018/08/31/13/34/nfl-3644686__480.png", status:""},
+        {id:1 , img:"https://cdn.pixabay.com/photo/2018/08/31/13/34/nfl-3644686__480.png", status:""},
+        {id:2 , img:"https://cdn.pixabay.com/photo/2017/08/10/17/42/brand-2625450__480.png", status:""},
+        {id:2 , img:"https://cdn.pixabay.com/photo/2017/08/10/17/42/brand-2625450__480.png", status:""},
+        {id:3 , img:"https://cdn.pixabay.com/photo/2016/05/27/18/20/dane-1420383__480.png", status:""},
+        {id:3 , img:"https://cdn.pixabay.com/photo/2016/05/27/18/20/dane-1420383__480.png", status:""},
+        {id:4 , img:"https://cdn.pixabay.com/photo/2017/08/10/14/02/visa-2623015__480.png", status:""},
+        {id:4 , img:"https://cdn.pixabay.com/photo/2017/08/10/14/02/visa-2623015__480.png", status:""},
+      
     ].sort(()=>Math.random() - 0.5))
 
 const[prev,setPrev] = useState(-1)
 
 function check(current){
-    if(items[current].id === items[prev].id){
-        items[current].stat = "correct"
-        items[prev].stat = "correct"
-        setItems([...items])
+    if(photos[current].id === photos[prev].id){
+        photos[current].status = "correct"
+        photos[prev].status = "correct"
+        setPhotos([...photos])
         setPrev(-1)
     }else{
-        items[current].stat = "wrong"
-        items[prev].stat = "wrong"
-        setItems([...items])
+        photos[current].status = "wrong"
+        photos[prev].status = "wrong"
+        setPhotos([...photos])
         setTimeout(()=>{
-            items[current].stat = ""
-            items[prev].stat = ""
-            setItems([...items])
+            photos[current].status = ""
+            photos[prev].status = ""
+            setPhotos([...photos])
             setPrev(-1)
         }, 1000)   
     }
@@ -44,8 +39,8 @@ function check(current){
 function handleClick(id){
     // alert(id)
     if(prev === -1){
-        items[id].stat = "active"
-        setItems([...items])
+        photos[id].status = "active"
+        setPhotos([...photos])
         setPrev(id)
     }else{
         check(id)
@@ -55,8 +50,8 @@ function handleClick(id){
 
   return (
     <div className="container">
-    {items.map((item,index) => (
-<Data key={index} item={item} id={index} handleClick={handleClick}/>
+    {photos.map((item,index) => (
+<Image key={index} item={item} id={index} handleClick={handleClick}/>
     ))}
     </div>
   )
